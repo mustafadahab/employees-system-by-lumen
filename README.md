@@ -12,19 +12,19 @@ Create employment system with lumen microservices
 ```
 
 
-##Install all the dependencies using composer
+## Install all the dependencies using composer
 ```sh
     composer install
 ```
 
-##make the required configuration changes (edit database name and connection) in the .env file
+## make the required configuration changes (edit database name and connection) in the .env file
 
-##Run the database migrations
+## Run the database migrations
 ```sh
     php artisan migrate
 ```
 
-##Start the local development server
+## Start the local development server
 
 ```sh
 php -S localhost:8000 -t public
@@ -32,11 +32,11 @@ php -S localhost:8000 -t public
 
 You can now access the server at http://localhost:8000
 
-##OR
+## OR
 
 ## create virtual domain pointing to the public directory
 
-#Swagger Part
+# Swagger Part
 
 generate documentation using swagger on each update
 ```sh
@@ -48,7 +48,7 @@ php artisan swagger-lume:generate
 <yourproject-name>/public/api/documentation
 ```
 
-#Front-end part
+# Front-end part
 ```sh
 front-end/html/index.html
 ```
