@@ -8,7 +8,7 @@ Create employment system with lumen microservices
 ## Clone the repository
 
 ```sh
-    https://github.com/mustafadahab/employees-system-by-lumen.git
+    git clone https://github.com/mustafadahab/employees-system-by-lumen.git
 ```
 
 
