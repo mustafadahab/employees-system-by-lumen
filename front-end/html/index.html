@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Mustafa Dahab | Employees dashboard</title>
+        <meta name="description" content="Responsive, Bootstrap, BS4" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- style -->
+        <!-- build:css ../assets/css/site.min.css -->
+        <link rel="stylesheet" href="../assets/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/css/theme.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+        <!-- endbuild -->
+    </head>
+    <body class="layout-row">
+          <!-- ############ Aside END-->
+        <div id="main" class="layout-column flex">
+
+            <!-- ############ Content START-->
+            <div id="content" class="flex ">
+                <!-- ############ Main START-->
+                <div>
+                    <div class="page-hero page-container " id="page-hero">
+                        <div class="padding d-flex">
+                            <div class="page-title">
+                                <h2 class="text-md text-highlight">Mustafa Dahab</h2>
+                                <small class="text-muted">Employee Dashboard</small>
+                            </div>
+                            <div class="flex"></div>
+                            <div>
+                                <a href="backend/" class="btn btn-md text-muted">
+                                    <span class="d-none d-sm-inline mx-1">Backend Documentation</span>
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content page-container" id="page-content">
+                        <div class="padding">
+                            <div class="row" data-plugin="apexcharts">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Top paid employees
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="Top-paid-chart">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Average Salary by Age
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="age-chart">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ############ Main END-->
+            </div>
+
+        </div>
+        <!-- build:js ../assets/js/site.min.js -->
+          <!-- jQuery -->
+          <script src="../libs/jquery/dist/jquery.min.js"></script>
+          <!-- Bootstrap -->
+          <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+          <!-- lazyload plugin -->
+          <script src="../assets/js/lazyload.config.js"></script>
+          <script src="../assets/js/lazyload.js"></script>
+          <script src="../assets/js/plugin.js"></script>
+          <!-- scrollreveal -->
+          <script src="../libs/scrollreveal/dist/scrollreveal.min.js"></script>
+          <!-- theme -->
+          <script src="../assets/js/theme.js"></script>
+          <script src="../assets/js/utils.js"></script>
+    </body>
+</html>

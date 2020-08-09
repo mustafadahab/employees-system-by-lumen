@@ -1,0 +1,854 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Employee API",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/employees/employee/public/",
+            "description": "Production"
+        }
+    ],
+    "paths": {
+        "/api/departments": {
+            "get": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Get all departments",
+                "operationId": "App\\Http\\Controllers\\DepartmentController::departmentsList",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Add a new department",
+                "operationId": "App\\Http\\Controllers\\DepartmentController::createDepartment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "dept_name": "IT"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/departments/{id}": {
+            "delete": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Delete department",
+                "operationId": "App\\Http\\Controllers\\DepartmentController::delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Department id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Department"
+                ],
+                "summary": "Update department",
+                "operationId": "App\\Http\\Controllers\\DepartmentController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Department id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "dept_name": "New Name"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dept_emp": {
+            "get": {
+                "tags": [
+                    "Employees Departments"
+                ],
+                "summary": "Get all employees departments",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Employees Departments"
+                ],
+                "summary": "Add a new employee to a department",
+                "operationId": "App\\Http\\Controllers\\DeptEmpController::add",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee number": {
+                                        "type": "integar"
+                                    },
+                                    "Department number": {
+                                        "type": "integar"
+                                    },
+                                    "from_date": {
+                                        "type": "date"
+                                    },
+                                    "to_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "emp_no": 1,
+                                    "dept_no": 1,
+                                    "from_date": "2020-10-10",
+                                    "to_date": "2020-08-09"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dept_emp/{id}": {
+            "put": {
+                "tags": [
+                    "Employees Departments"
+                ],
+                "summary": "Update employee department",
+                "operationId": "App\\Http\\Controllers\\DeptEmpController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Department Employee id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee number": {
+                                        "type": "integar"
+                                    },
+                                    "Department number": {
+                                        "type": "integar"
+                                    },
+                                    "from_date": {
+                                        "type": "date"
+                                    },
+                                    "to_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "emp_no": 1,
+                                    "dept_no": 1,
+                                    "from_date": "2020-10-10",
+                                    "to_date": "2020-08-09"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Employees Departments"
+                ],
+                "summary": "Delete Dempartment Employee attachment",
+                "operationId": "App\\Http\\Controllers\\DeptEmpController::delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Department Employee id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/employees": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get all employees",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::employeesList",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit of the item",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 5
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Add a new employee      *Note: 1:male, 2:female, 3:other",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::createEmployee",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "integar"
+                                    },
+                                    "birth_date": {
+                                        "type": "date"
+                                    },
+                                    "hire_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "first_name": "Mustafa",
+                                    "last_name": "Dahab",
+                                    "gender": 1,
+                                    "birth_date": "1988-11-11",
+                                    "hire_date": "2020-10-10"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/employees/top_paid_employees": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get Top paid employees",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::employeesTopPaid",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit of the item",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 5
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/employees/employees_salary_by_age": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get Average employees Salary by Age",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::employeesArgSalary",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page number",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit of the item",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 5
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/employees/{id}": {
+            "put": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Update employee",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Employee id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "integar"
+                                    },
+                                    "birth_date": {
+                                        "type": "date"
+                                    },
+                                    "hire_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "first_name": "Mustafa",
+                                    "last_name": "Dahab",
+                                    "gender": 1,
+                                    "birth_date": "1988-11-11",
+                                    "hire_date": "2020-10-10"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Delete employee",
+                "operationId": "App\\Http\\Controllers\\EmployeeController::delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Employee id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/salaries": {
+            "get": {
+                "tags": [
+                    "Salary"
+                ],
+                "summary": "Get all salaries",
+                "operationId": "App\\Http\\Controllers\\SalaryController::salariesList",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Salary"
+                ],
+                "summary": "Add a new salary",
+                "operationId": "App\\Http\\Controllers\\SalaryController::addSalary",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee number": {
+                                        "type": "integar"
+                                    },
+                                    "amount": {
+                                        "type": "double"
+                                    },
+                                    "from_date": {
+                                        "type": "date"
+                                    },
+                                    "to_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "emp_no": 1,
+                                    "amount": 10.5,
+                                    "from_date": "2020-10-10",
+                                    "to_date": "2020-08-09"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/salaries/{id}": {
+            "put": {
+                "tags": [
+                    "Salary"
+                ],
+                "summary": "Update salary",
+                "operationId": "App\\Http\\Controllers\\SalaryController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Salary id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee number": {
+                                        "type": "integar"
+                                    },
+                                    "amount": {
+                                        "type": "double"
+                                    },
+                                    "from_date": {
+                                        "type": "date"
+                                    },
+                                    "to_date": {
+                                        "type": "date"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "emp_no": 1,
+                                    "amount": 10.5,
+                                    "from_date": "2020-10-10",
+                                    "to_date": "2020-08-09"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Salary"
+                ],
+                "summary": "Delete salary",
+                "operationId": "App\\Http\\Controllers\\SalaryController::delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Salary id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Could Not Find Resource",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
