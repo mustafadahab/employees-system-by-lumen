@@ -43,6 +43,15 @@ generate documentation using swagger on each update
 php artisan swagger-lume:generate 
 ```
 
+## Integrate Swagger 
+go to user controle change the following
+```sh
+     *      @OA\Server(
+     *         description="Production",
+     *         url="<yourproject-name>/public",
+     *     )
+```
+
 ## Access documentation
 ```sh
 <yourproject-name>/public/api/documentation
