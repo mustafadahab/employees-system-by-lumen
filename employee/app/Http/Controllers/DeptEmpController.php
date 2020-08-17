@@ -18,6 +18,7 @@ class DeptEmpController extends BaseController
      *     path="/api/dept_emp",
      *     summary="Get all employees departments",
      *     tags={"Employees Departments"},
+     *     security={{"Bearer":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Success",
@@ -50,6 +51,7 @@ class DeptEmpController extends BaseController
      *     path="/api/dept_emp",
      *     summary="Add a new employee to a department",
      *     tags={"Employees Departments"},
+     *     security={{"Bearer":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -127,6 +129,7 @@ class DeptEmpController extends BaseController
      *     path="/api/dept_emp/{id}",
      *     summary="Update employee department",
      *     tags={"Employees Departments"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Department Employee id",
      *         in="path",
@@ -215,6 +218,7 @@ class DeptEmpController extends BaseController
      *     path="/api/dept_emp/{id}",
      *     summary="Delete Dempartment Employee attachment",
      *     tags={"Employees Departments"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Department Employee id",
      *         in="path",

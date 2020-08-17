@@ -49,6 +49,7 @@ class SalaryController extends BaseController
      *     path="/api/salaries",
      *     summary="Add a new salary",
      *     tags={"Salary"},
+     *     security={{"Bearer":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -124,6 +125,7 @@ class SalaryController extends BaseController
      *     path="/api/salaries/{id}",
      *     summary="Update salary",
      *     tags={"Salary"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Salary id",
      *         in="path",
@@ -207,6 +209,7 @@ class SalaryController extends BaseController
      *     path="/api/salaries/{id}",
      *     summary="Delete salary",
      *     tags={"Salary"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Salary id",
      *         in="path",

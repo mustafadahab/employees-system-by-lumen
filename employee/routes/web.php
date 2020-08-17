@@ -11,12 +11,23 @@
 |
 */
 
+/*$router->get('/', function () {
+    return \Illuminate\Support\Str::random(32);
+
+});*/
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->group(['prefix' => 'api/users'], function () use ($router) {
 
-$router->group(['prefix' => 'api/departments'], function () use ($router) {
 
+    $router->post('/register','UsersController@register');
+    $router->post('/login','UsersController@loginEmail');
+});
+
+
+
+$router->group(['prefix' => 'api/departments','middleware' => 'auth:api'], function () use ($router) {
     $router->post('/', ['uses' => 'DepartmentController@createDepartment']);
 
     $router->get('/', ['uses' => 'DepartmentController@departmentsList']);
@@ -24,18 +35,24 @@ $router->group(['prefix' => 'api/departments'], function () use ($router) {
     $router->Patch('/{id}', ['uses' => 'DepartmentController@update']);
 
     $router->delete('/{id}', ['uses' => 'DepartmentController@delete']);
+});
+
+// unsecured routes
+$router->group(['prefix' => 'api/employees'], function () use ($router) {
+    $router->get('/top_paid_employees', ['uses' => 'EmployeeController@employeesTopPaid']);
+
+    $router->get('/employees_salary_by_age', ['uses' => 'EmployeeController@employeesArgSalary']);
 
 });
 
-$router->group(['prefix' => 'api/employees'], function () use ($router) {
+
+$router->group(['prefix' => 'api/employees','middleware' => 'auth:api'], function () use ($router) {
 
     $router->post('/', ['uses' => 'EmployeeController@createEmployee']);
 
     $router->get('/', ['uses' => 'EmployeeController@employeesList']);
 
-    $router->get('/top_paid_employees', ['uses' => 'EmployeeController@employeesTopPaid']);
 
-    $router->get('/employees_salary_by_age', ['uses' => 'EmployeeController@employeesArgSalary']);
 
     $router->put('/{id}', ['uses' => 'EmployeeController@update']);
 
@@ -43,7 +60,7 @@ $router->group(['prefix' => 'api/employees'], function () use ($router) {
 
 });
 
-$router->group(['prefix' => 'api/salaries'], function () use ($router) {
+$router->group(['prefix' => 'api/salaries','middleware' => 'auth:api'], function () use ($router) {
 
     $router->post('/', ['uses' => 'SalaryController@addSalary']);
 
@@ -55,7 +72,7 @@ $router->group(['prefix' => 'api/salaries'], function () use ($router) {
 
 });
 
-$router->group(['prefix' => 'api/dept_emp'], function () use ($router) {
+$router->group(['prefix' => 'api/dept_emp','middleware' => 'auth:api'], function () use ($router) {
 
     $router->post('/', ['uses' => 'DeptEmpController@add']);
 

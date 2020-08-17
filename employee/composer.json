@@ -7,8 +7,10 @@
     "require": {
         "php": "^7.2.5",
         "darkaonline/swagger-lume": "7.*",
+        "dusterio/lumen-passport": "^0.2.19",
         "laravel/lumen-framework": "^7.0",
-        "nordsoftware/lumen-cors": "^3.3"
+        "nordsoftware/lumen-cors": "^3.3",
+        "zitrone475/lumen-routes-command": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9.1",

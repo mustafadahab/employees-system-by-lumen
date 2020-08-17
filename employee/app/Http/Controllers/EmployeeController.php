@@ -17,6 +17,7 @@ class EmployeeController extends BaseController
      *     path="/api/employees",
      *     summary="Get all employees",
      *     tags={"Employee"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="page number",
      *         in="query",
@@ -225,6 +226,7 @@ class EmployeeController extends BaseController
      *     path="/api/employees",
      *     summary="Add a new employee      *Note: 1:male, 2:female, 3:other",
      *     tags={"Employee"},
+     *     security={{"Bearer":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -304,6 +306,7 @@ class EmployeeController extends BaseController
      *     path="/api/employees/{id}",
      *     summary="Update employee",
      *     tags={"Employee"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Employee id",
      *         in="path",
@@ -393,6 +396,7 @@ class EmployeeController extends BaseController
      *     path="/api/employees/{id}",
      *     summary="Delete employee",
      *     tags={"Employee"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Employee id",
      *         in="path",

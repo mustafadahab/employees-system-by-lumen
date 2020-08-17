@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
@@ -52,6 +53,9 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof NotFoundHttpException){
             return response(['success'=> false,'message'=> ['Wrong route'],'data' => []],404);
+        }
+        else if ($exception instanceof AuthenticationException){
+            return response(['success'=> false,'message'=> ['Unauthenticated'],'data' => []],401);
         }
         return parent::render($request, $exception);
     }

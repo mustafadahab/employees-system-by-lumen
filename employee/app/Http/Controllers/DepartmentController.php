@@ -16,7 +16,7 @@ class DepartmentController extends BaseController
      * Shaadoow API.
      *      *@OA\Server(
      *         description="Production",
-     *         url="http://localhost/employees/employee/public/",
+     *         url="http://localhost/emp/employees-system-by-lumen/employee/public/",
      *     )
      */
 
@@ -25,6 +25,7 @@ class DepartmentController extends BaseController
      *     path="/api/departments",
      *     summary="Get all departments",
      *     tags={"Department"},
+     *     security={{"Bearer":{}}},
      *     @OA\Response(
      *         response=200,
      *         description="Success",
@@ -57,6 +58,7 @@ class DepartmentController extends BaseController
      *     path="/api/departments",
      *     summary="Add a new department",
      *     tags={"Department"},
+     *     security={{"Bearer":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -112,6 +114,7 @@ class DepartmentController extends BaseController
      *     path="/api/departments/{id}",
      *     summary="Update department",
      *     tags={"Department"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Department id",
      *         in="path",
@@ -178,6 +181,7 @@ class DepartmentController extends BaseController
      *     path="/api/departments/{id}",
      *     summary="Delete department",
      *     tags={"Department"},
+     *     security={{"Bearer":{}}},
      *     @OA\Parameter(
      *         description="Department id",
      *         in="path",
