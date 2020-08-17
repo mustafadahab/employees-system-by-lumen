@@ -26,7 +26,7 @@ Create employment system with lumen microservices
 ```
 
 ## you need to generate APP_KEY and place it on .env file 
-go to ```sh yourproject-name```/public/key_gen
+go to ``` yourproject-name```/public/key_gen
 copy the key and and past it on 
 ```sh
     APP_KEY=kjhkjhkkjh
@@ -63,7 +63,7 @@ go to user controle change the following
 ```sh
      *      @OA\Server(
      *         description="Production",
-     *         url="```sh yourproject-name```/public",
+     *         url="yourproject-name/public",
      *     )
 ```
 
