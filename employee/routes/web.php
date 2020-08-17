@@ -11,12 +11,13 @@
 |
 */
 
-/*$router->get('/', function () {
-    return \Illuminate\Support\Str::random(32);
 
-});*/
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+$router->get('/key_gen', function () {
+    return \Illuminate\Support\Str::random(32);
+
 });
 $router->group(['prefix' => 'api/users'], function () use ($router) {
 
