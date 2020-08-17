@@ -19,6 +19,21 @@ Create employment system with lumen microservices
 
 ## make the required configuration changes (edit database name and connection) in the .env file
 
+## Run php artisan passport:install to get (CLIENT_ID,CLIENT_SECRET) the add then to .env file
+```sh
+    CLIENT_ID= 1
+    CLIENT_SECRET= abcdefg....
+```
+
+## you need to generate APP_KEY and place it on .env file 
+go to <yourproject-name>/public/key_gen
+copy the key and and past it on 
+```sh
+    APP_KEY=kjhkjhkkjh
+```
+
+
+
 ## Run the database migrations
 ```sh
     php artisan migrate
